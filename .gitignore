@@ -160,8 +160,12 @@ cython_debug/
 #.idea/
 
 ## Output Files
-.txt
 .png
-*.txt
 *.png
-
+*.txt
+.txt
+!requirements.txt
+*.csv
+.csv
+!Lotter*.csv
+!mega*.csv

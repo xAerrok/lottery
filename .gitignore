@@ -169,3 +169,4 @@ cython_debug/
 .csv
 !Lotter*.csv
 !mega*.csv
+!top14.csv

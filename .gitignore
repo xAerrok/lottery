@@ -161,5 +161,7 @@ cython_debug/
 
 ## Output Files
 .txt
-.csv
 .png
+*.txt
+*.png
+

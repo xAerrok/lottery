@@ -3,7 +3,7 @@
 The lottery is in the opinion of this developer, a game for people who are bad at math. That doesn't mean it can't be a little fun to question the randomness of a process involving physical ping pong balls getting flopped around an airflow machine, right? 
 
 ## ticketer.py
-- Reads your top14.csv file
+- Reads your top14.csv file (Note, this is just the numbers 1-14, so you want to use the other programs to build your own heuristic or statistical indicators that could actually be useful.)
 - Gives you 40 sets of numbers to play based on the aprioris
 
 ## megaball.py

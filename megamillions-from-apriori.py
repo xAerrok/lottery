@@ -24,25 +24,33 @@ cumulative_frequency = {number: [] for number in range(1, max_number + 1)}
 # Calculate the start date for the previous 1 year
 one_year_ago = data['date'].max() - pd.DateOffset(years=1)
 
+#BEGIN ADDITIONS TO CODE
+#add Calculate the start date for the previous 3 years
+three_years_ago = data['date'].max() - pd.DateOffset(years=1)
+
 # Iterate through each row of the data and calculate the weekly and cumulative frequencies
 for _, row in data.iterrows():
     date = row['date']
-    
-    # Calculate the weekly frequency
-    for column in number_columns:
-        number = row[column]
-        if pd.notnull(number):
-            number = int(number)
-            if 1 <= number <= max_number:  # Check if the number is within the valid range
-                number_frequency[number] = number_frequency.get(number, 0) + 1
 
-    # Calculate the cumulative frequency by month, quarter, and year
-    for column in number_columns:
-        number = row[column]
-        if pd.notnull(number):
-            number = int(number)
-            if 1 <= number <= max_number:  # Check if the number is within the valid range
-                cumulative_frequency[number].append((date, number_frequency[number]))
+    #add Condition: only parse data from less than 3 years ago
+    if date > three_years_ago:
+    #add Increase indentation of following 2 sections
+        # Calculate the weekly frequency
+        for column in number_columns:
+            number = row[column]
+            if pd.notnull(number):
+                number = int(number)
+                if 1 <= number <= max_number:  # Check if the number is within the valid range
+                    number_frequency[number] = number_frequency.get(number, 0) + 1
+
+        # Calculate the cumulative frequency by month, quarter, and year
+        for column in number_columns:
+            number = row[column]
+            if pd.notnull(number):
+                number = int(number)
+                if 1 <= number <= max_number:  # Check if the number is within the valid range
+                    cumulative_frequency[number].append((date, number_frequency[number]))
+#END ADDITIONS TO CODE
 
 # Calculate the total number of draws in the previous 1 year
 total_draws_1_year = data[data['date'] >= one_year_ago]['date'].count()

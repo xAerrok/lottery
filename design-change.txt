@@ -1,4 +1,0 @@
-Design addition: throw out data from greater than 3 years ago
-  calculate date of 3 years ago
-  before using a number in the cumulative calculations, check if the date is longer than 3 years ago
-  do not perform cumulative calculations if date is smaller than the date of 3 years ago
